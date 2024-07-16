@@ -1,0 +1,1293 @@
+/* Base reset, font, and background styling */
+body, html {
+    margin: 0;
+    padding: 20px;
+    padding-bottom: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Overlay styling for modals */
+#overlay,
+#notification {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+#overlay {
+    background-image: url('../images/net.png');
+    background-repeat: repeat;
+}
+
+.blockTitle {
+    margin-top: 40px;
+    text-align: left;
+    margin-left: 130px;
+    font-size: 90%;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.cookie img {
+    min-width: 25px;
+    min-height: 25px;
+    margin-top: -35px;
+    margin-right: 0 !important;
+}
+
+/* Popup modal styling */
+.popup,
+.photos {
+    display: none;
+    position: fixed;
+    overflow: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 12px 14px 12px 12px;
+    z-index: 101;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: visible;
+}
+
+.popup {
+    width: 90%;
+    min-width: 550px;
+    max-width: 550px;
+}
+
+.photos {
+    margin: 0 auto;
+    background-color: transparent;
+    padding: 0;
+    text-align: center;
+}
+
+.printBox {
+    display: none;
+    position: absolute;
+    margin-left: -228px;
+    padding-right: 15px;
+    width: 250px;
+}
+
+progress {
+    width: 180px;
+    display: block;
+    margin: 0 auto;
+}
+
+.findMe {
+    display: none;
+    cursor: pointer;
+}
+
+.findMe img {
+    width: 30px;
+    height: 30px;
+    margin-left: 3px;
+}
+
+#columnSearch {
+    display: none;
+}
+
+a#logoutBtn {
+    color: #C00 !important;
+}
+
+th[data-column="history"] {
+    min-width: 330px;
+}
+th[data-column="send_sms_note"] {
+    min-width: 360px;
+}
+th[data-column="part_name"] {
+    min-width: 230px;
+}
+th[data-column="assemble_ready"] {
+    min-width: 160px;
+}
+
+/* Main menu button styling */
+
+/* Logo and Rows adjustments */
+.mainMenu {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Space between items */
+}
+
+.mainMenu a {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px; /* Increased size */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    position: relative; /* Required for pseudo-elements */
+    box-shadow: 0 4px #0056b3; /* 3D effect */
+}
+
+.secMenu {
+    display: block;
+    margin-right: 32px;
+}
+
+.secMenu a {
+    padding: 6px 12px;
+}
+
+.mainMenu a:hover {
+    background-color: #0056b3;
+    box-shadow: 0 2px #004099; /* Adjusted shadow for pressed effect */
+    transform: translateY(4px); /* Click down effect */
+}
+
+.mainMenu #ordersCalendar {
+    padding: 14px 16px;
+}
+
+.mainMenu a.activated {
+    background-color: #0056b3;
+    box-shadow: 0 4px #004099; /* Adjusted shadow for pressed effect */
+}
+
+#calendarMenu span {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    border: 2px solid #DDD;
+    border-radius: 5px;
+    padding: 7px 0 7px 0;
+    font-size: 14px;
+}
+
+#calendarMenu #calendarReset,
+#calendarMenu #calendarAdd {
+    padding: 7px 11px;
+}
+
+/* Base button styling for 'Edytuj', 'Usuń', 'Dodaj' */
+#recordsTable .editBtn, 
+#recordsTable .photoBtn, 
+#recordsTable .switchBtn, 
+.calendar .switchBtn,
+#recordsTable .printBtn, 
+.delBtn, .arcBtn, .desBtn, .resBtn, #addNew, #changeCompany, #changeCompany2, #calendarPrev, #calendarNext, #calendarReset, #calendarAdd, #calendarReset, #hideComplaints {
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    margin: 3px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    /*box-shadow: 0 2px rgba(0,0,0,0.2);*/
+    z-index: 0;
+}
+
+/* Specific styling for 'Edytuj' and 'Usuń' buttons with icons */
+#recordsTable .editBtn, 
+#recordsTable .photoBtn, 
+#recordsTable .switchBtn, 
+.calendar .switchBtn,
+#recordsTable .printBtn, 
+.delBtn, .arcBtn, .desBtn, .resBtn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px; /* Specific width for icon buttons */
+    height: 32px; /* Specific height for icon buttons */
+    padding: 0; /* Override for icon buttons */
+    font-size: 0; /* Hide text for icon buttons */
+    border-radius: 10%; /* Circular shape for icon buttons */
+}
+
+#recordsTable .editBtn::before, 
+#recordsTable .photoBtn::before,
+#recordsTable .switchBtn::before, 
+.calendar .switchBtn::before,
+#recordsTable .printBtn::before, 
+.delBtn::before, .arcBtn::before, .desBtn::before, .resBtn::before {
+    content: '';
+    font-size: 16px; /* Icon size */
+    display: block;
+    color: white;
+}
+
+#recordsTable .editBtn::before {
+    font-family: 'Font Awesome 5 Free'; /* This is required to ensure the correct font is used */
+    content: '\f303'; /* Unicode pencil */
+    font-weight: 900; /* FontAwesome solid icons use 900 weight */
+}
+
+#recordsTable .photoBtn::before {
+    font-family: 'Font Awesome 5 Free'; /* This is required to ensure the correct font is used */
+    content: '\f030'; /* Unicode value for the printer icon */
+    font-weight: 900; /* FontAwesome solid icons use 900 weight */
+}
+
+#recordsTable .switchBtn::before,
+.calendar .switchBtn::before {
+    font-family: 'Font Awesome 5 Free'; /* This is required to ensure the correct font is used */
+    content: '\f022'; /* Unicode value for the printer icon */
+    font-weight: 900; /* FontAwesome solid icons use 900 weight */
+}
+
+#recordsTable .printBtn::before {
+    font-family: 'Font Awesome 5 Free'; /* This is required to ensure the correct font is used */
+    content: '\f02f'; /* Unicode value for the printer icon */
+    font-weight: 900; /* FontAwesome solid icons use 900 weight */
+}
+
+/*#recordsTable .printBox .printBtn:nth-of-type(-n+4)::before {
+    font-family: 'Font Awesome 5 Free';
+    content: '\f571';
+    font-weight: 900;
+}
+
+#recordsTable .printBox .printBtn:nth-of-type(n+5):nth-of-type(-n+6)::before {
+    font-family: 'Font Awesome 5 Free'; 
+    content: '\f15c'; 
+    font-weight: 900; 
+}*/
+
+#recordsTable .printBox .printBtn::before {
+    font-family: 'Font Awesome 5 Free'; 
+    content: '\f15c'; 
+    font-weight: 900; 
+}
+
+.delBtn::before,
+.desBtn::before {
+    font-family: 'Font Awesome 5 Free'; /* This is required to ensure the correct font is used */
+    content: '\f00d'; /* Unicode cross */
+    font-weight: 900; /* FontAwesome solid icons use 900 weight */
+}
+
+.arcBtn::before {
+    font-family: 'Font Awesome 5 Free'; /* This is required to ensure the correct font is used */
+    content: '\f187';
+    font-weight: 900;
+}
+
+#recordsTable .switchBtn,
+.calendar .switchBtn {
+    background-color: #007bff;
+}
+
+#recordsTable .editBtn, 
+#recordsTable .photoBtn, 
+#recordsTable .printBtn {
+    background-color: #28a745; /* Green background */
+}
+
+#recordsTable #columnSearch th {
+    padding: 4px 2px;
+}
+
+.delBtn {
+    background-color: #dc3545; /* Red background */
+}
+
+.arcBtn {
+    background-color: #ffa52e;
+}
+
+.desBtn,
+.resBtn {
+    background-color: #e90;
+}
+
+.resBtn::before {
+    font-family: 'Font Awesome 5 Free'; /* This is required to ensure the correct font is used */
+    content: '\f2ea';
+    font-weight: 900;
+}
+
+/*.deleted .delBtn {
+    background-color: #AAA;
+}
+
+.deleted .delBtn:hover {
+    background-color: #AAA;
+    opacity: 1;
+}*/
+
+/* Container to ensure buttons are next to each other with 3px gap */
+.action-buttons {
+    display: flex;
+}
+
+/* Hover effect for all buttons */
+.editBtn:hover, .photoBtn:hover, .switchBtn:hover, .calendar .switchBtn:hover, .delBtn:hover, .arcBtn:hover, .desBtn:hover, #addNew:hover, #changeCompany:hover, #changeCompany2:hover, #calendarPrev:hover, #calendarNext:hover, #calendarReset:hover, #calendarAdd:hover, #hideComplaints:hover {
+    opacity: 0.8;
+}
+
+#addNew, #changeCompany, #changeCompany2, #calendarPrev, #calendarNext, #calendarReset, #calendarAdd, #hideComplaints {
+    background-color: #fff; /* Consistent with 'Edytuj' button */
+    border: 2px solid #007bff;
+    color: #007bff;
+    display: inline-block; /* Make the 'Dodaj' link look like a button */
+    text-decoration: none;
+    font-weight: normal;
+}
+
+#hideComplaints {
+    padding: 10px 7px;
+    margin-left: 5px;
+}
+
+#hideComplaints img {
+    height: 12px;
+}
+
+#changeCompany2 {
+    border: 1px solid #CCC;
+    color: #333;
+    position: absolute;
+    top: 13px;
+    left: 135px;
+    padding: 11px 14px;
+    text-align: center;
+    width: 90px;
+}
+
+/* Table styling */
+#recordsTable,
+.statisticsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#recordsTable th, 
+#recordsTable td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+#recordsTable td[data-column*='date'] {
+    min-width: 80px;
+}
+
+#recordsTable th {
+    background-color: #e9ecef;
+}
+
+#recordsTable .archived {
+    color: #CCC;
+    /*display: none;*/
+}
+#recordsTable .archived .action-buttons,
+#recordsTable .archived td .showPhotos {
+    opacity: 0.2;
+}
+
+#recordsTable .archived:hover,
+#recordsTable .archived:hover .action-buttons,
+#recordsTable .archived:hover td .showPhotos {
+    opacity: 1;
+    color: inherit;
+}
+
+#recordsTable select {
+    display: block;
+    border: none;
+    padding: 0;
+    text-align: left;
+}
+
+#recordsTable .deleted {
+    background-color: #FDD;
+}
+
+#recordsTable .highlight_blue {
+    background-color: #e6e8eb;
+}
+
+#recordsTable .highlight {
+    background-color: #FFF;
+}
+
+
+/* Search fields styling */
+.searchInput {
+    width: 100%;
+    padding: 10px 5px;
+    /*margin-bottom: 10px;*/
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#searchBox {
+    width: 242px;
+}
+#searchBox2 {
+    width: 125px;
+    padding: 9px 5px 10px 5px;
+    margin-bottom: 0;
+    margin-left: 3px;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+    width: 15px !important;
+}
+
+#columnToggles #dropdownContent,
+#statsToggles #statsContent {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    padding: 16px 16px 6px 16px;
+    z-index: 2;
+    /*opacity: .85;*/
+}
+
+#statsToggles #statsContent {
+    min-width: 325px;
+    margin-left: -225px;
+    padding: 0 25px 22px 25px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.warning {
+    background-color: #F33;
+    border: 1px solid #F33 !important;
+    color: white;
+}
+
+#phone_info {
+    display: none;
+}
+
+#blockVerification,
+#blockRepair {
+    display: none;
+}
+
+#statsToggles #statsContent table th {
+    text-align: left;
+}
+
+#statsToggles #statsContent table tbody td {
+    padding-bottom: 5px !important;
+    padding-left: 10px !important;
+    font-weight: normal;
+}
+
+#statsToggles #statsContent table tbody td {
+    text-align: right;
+}
+
+#columnToggles:hover #dropdownContent,
+#statsToggles:hover #statsContent {
+    display: block;
+}
+
+#columnToggles label {
+    display: block; /* Adjusted for dropdown */
+    margin-bottom: 12px; /* Space between options */
+    cursor: pointer;
+}
+
+.header img.logo { /* Assuming the addition of an img tag with class 'logo' */
+    height: 120px; /* Adjust as needed */
+    margin-top: -15px;
+}
+
+#recordForm img.logo {
+    position: absolute;
+    top: 16px;
+    left: 70px;
+    height: 40px;
+}
+
+button::after {
+    content: attr(data-title);
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#rowCount, #loading {
+    margin-left: 5px;
+}
+
+/* Table row font size and hover highlight */
+#recordsTable tbody tr td {
+    font-size: 90%;
+}
+
+.header {
+    display: flex;
+    /* align-items: center; */
+    gap: 30px; /* Adjust the space between logo and menu-toggle-container */
+    position: relative;
+}
+
+#login-details {
+    margin-left: auto;
+    text-align: right;
+    min-width: 350px;
+}
+
+#login-details img {
+    height: 11px;
+    width: 11px;
+    margin-right: 6px;
+}
+
+#login-details .prezes {
+    height: 14px;
+    width: 19px;
+}
+
+#login-details .badger {
+    height: 22px;
+    width: 22px;
+}
+
+#login-details .pig {
+    height: 14px;
+    width: 22px;
+}
+
+#login-details .space {
+    height: 14px;
+    width: 16px;
+}
+
+#login-details .admin {
+    height: 14px;
+    width: 14px;
+}
+
+/*#login-details table {
+    margin-top: 0;
+}
+
+#login-details table tr td {
+    text-align: right;
+    width: auto;
+    border: none;
+    margin: 0;
+    padding: 0 0 5px 15px;
+}
+
+#login-details table tr:hover {
+    background-color: inherit;
+}
+
+#login-details td:nth-child(2) {
+    color:#CCC;
+}
+
+#login-details td:nth-child(3) {
+    font-weight: bold;
+}*/
+
+#login-details {
+    font-weight: bold;
+}
+
+#login-details p {
+    font-weight: normal;
+}
+
+.menu-toggle-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 590px;
+}
+
+#resetSearch {
+    font-weight: normal;
+    margin-left: 10px;
+}
+
+/* Button styling for #addNew kept as original, added inline display for divs */
+#columnHover a {
+    background-color: #fff; /* Consistent with 'Edytuj' button */
+    border: 2px solid #007bff;
+    color: #007bff;
+    padding: 8px 14px; /* Keep original padding */
+    text-decoration: none;
+    border-radius: 4px; /* Keep original border-radius */
+    display: inline-block; /* Inline display for alignment */
+    font-weight: normal;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+}
+
+/* Ensuring inline display for all div containers */
+#columnToggles, #statsToggles, #subMenu, #rowCount, #loading {
+    display: inline-block; /* Display divs inline */
+}
+
+/* Adjust hover effect to match original #addNew button */
+#columnHover a:hover {
+    opacity: 0.8; /* Matching the hover effect of #addNew */
+}
+
+#underMenu {
+    display: flex; 
+    align-items: center; 
+    gap: 3px;
+    margin-top: 10px;
+    margin-left: -3px;
+}
+
+.mainMenu #loading img {
+    height: 40px;
+    width: 40px;
+    margin-bottom: -7px;
+}
+
+#topLink {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    width: 44px; 
+    height: 38px; 
+    padding-bottom: 6px;
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    background-color: #333; 
+    color: #fff; 
+    border-radius: 4px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); 
+    text-decoration: none; 
+    font-size: 28px;
+    z-index: 1;
+}
+
+.th .sort-icon {
+    margin-left: 3px; /* Space between column name and icon */
+    font-size: 90%;
+    /* Additional styling as needed */
+}
+
+#columnNames th {
+    cursor: pointer;
+}
+
+#recordsTable table tbody tr:hover {
+    background-color: #fff; /* White background on hover */
+}
+
+#recordForm #clientid,
+#recordForm #client_orders,
+#recordForm #nip,
+#recordForm #name {
+    background-image: url('../images/automatic.png');
+    background-size: 15px 15px; 
+    background-position: right 8px center; /* Adjust the position as needed */
+    background-repeat: no-repeat;
+}
+
+#recordForm #nip,
+#recordForm #name {
+    background-image: url('../images/search.png');
+}
+
+#recordForm .verification_quote,
+#recordForm .repair_quote {
+    max-width: 208px !important;
+}
+
+#recordForm .repair_quote {
+    max-width: 209px !important;
+    margin-left: 5px !important;
+}
+
+/*#recordForm #client_address {
+    background-color: #CEE;
+    padding-top: 7px;
+    padding-bottom: 2px;
+    padding-right: 7px;
+    border-radius: 5px;
+}*/
+
+#recordForm #client_address_box {
+    display: none;
+}
+
+
+
+/* EDIT ADDNEW popup boxes */
+form#recordForm {
+    margin: auto;
+    margin-top: -15px;
+    padding: 0;
+    background: none;
+    text-align: right;
+}
+
+#dateTime {
+    margin-top: 15px;
+    margin-bottom: 3px;
+}
+
+/*
+form#recordForm label:not([for="archived"]):not([for="verification_accepted"]):not([for="repair_accepted"]):not([for="assemble"]):not([for="interference"]):not([for="send_sms"]) {
+    position: absolute;
+    background-color: #f0f2f5;
+    padding: 8px 10px;
+    border-radius: 4px;
+    top: -15px;
+    left: 0;
+    transition: all 0.3s ease;
+    visibility: hidden;
+    opacity: 0;
+    z-index: -1;
+    font-size: 90%;
+}
+
+form#recordForm input[type="text"]:focus + label,
+form#recordForm input[type="date"]:focus + label {
+    visibility: visible;
+    opacity: 1;
+    z-index: 100;
+    transform: translateY(-20px);
+}
+
+form#recordForm #archived:focus + label,
+form#recordForm #assemble:focus + label {
+    transform: none;
+}
+*/
+
+form#recordForm label[for="archived"],
+form#recordForm label[for="assemble"],
+form#recordForm label[for="interference"],
+form#recordForm label[for="send_sms"],
+form#recordForm label[for="verification_accepted"],
+form#recordForm label[for="repair_accepted"] {
+    font-size: 85%;
+}
+
+form#recordForm #assemble_box,
+form#recordForm #offersent_box {
+    display: none;
+}
+
+form#recordForm input[type="text"],
+form#recordForm input[type="date"],
+form#recordForm input[type="datetime-local"],
+form#recordForm input[type="number"],
+form#recordForm input[type="checkbox"],
+form#recordForm textarea,
+form#recordForm select,
+form#recordForm .attachments_button,
+form#recordForm .add_button,
+form#recordForm .remove_button {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 422px;
+    width: 100%; /* Adjust based on preference */
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#emailConfirm {
+    display: none;
+    background-color: #dfd;
+    border-radius: 5px;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #28a745;
+}
+
+#editTip,
+.editTip2 {
+    display: none;
+    background-color: #FEE;
+    border-radius: 5px;
+    text-align: left;
+    padding: 8px;
+    padding-bottom: 0;
+    margin-bottom: 5px;
+    border: 1px solid #F00;
+    color: #F00;
+    margin-left: 128px;
+    line-height: 150%;
+    vertical-align: text-top;
+    font-size: 12px;
+    padding: 8px;
+}
+.editTip2 {
+    background-color: #DEF;
+    border: 1px solid #09F;
+    color: #09F;
+}
+
+.block {
+    display: block;
+}
+
+#editTip i,
+.editTip2 i {
+    float: left;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    font-size: 150%;
+    margin-top: 3px;
+    margin-left: 3px;
+}
+/*.editTip2 i {
+    margin-top: 0;
+    margin-bottom: 0;
+}*/
+
+#editTip p,
+.editTip2 p {
+    margin: 0;
+}
+
+form#recordForm #learn {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    font-size: 170%;
+    color: #09F;
+    cursor: pointer;
+}
+
+form#recordForm .editTip2 .single-line {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+form#recordForm select {
+    max-width: 422px;
+}
+
+form#recordForm label {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #777;
+}
+
+form#recordForm .checkboxContainer {
+    display: block;
+    width: 100%;
+    /* text-align: left; */
+}
+
+form#recordForm #interference_note_box,
+form#recordForm .interference_note_box {
+    display: none;
+}
+
+form#recordForm #send_sms_note_box {
+    display: block;
+}
+
+.resizePanel {
+    width: 25px;
+    height: 25px;
+    margin-bottom: -7px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#resizePanel2 {
+    width: 25px;
+    height: 25px;
+    margin-top: -5px;
+    margin-bottom: -7px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+form#recordForm input[type="file"] {
+    display: none;
+}
+
+form#recordForm textarea {
+    height: 70px;
+    resize: vertical;
+}
+
+form#recordForm #sms_counter,
+form#recordForm #client_exists {
+    float: left;
+    margin-left: 128px;
+    font-size: 85%;
+    margin-top: 3px;
+}
+
+form#recordForm .suggestions {
+    position: absolute;
+    margin-left: -12px;
+    background-color: #FFF;
+    z-index: 99;
+    display: none; /* Hidden by default */
+    border-bottom: 1px dotted #999;
+    width: 100%;
+    box-shadow: 0 15px 15px -15px #999;
+}
+form#recordForm .suggestions div {
+    padding: 10px;
+    cursor: pointer;
+}
+form#recordForm .suggestions div:hover {
+    background-color: #dfd;
+    overflow-x: hidden;
+}
+form#recordForm .suggestion-item {
+    color: #999;
+    border-top: 1px dotted #999;
+    font-size: 14px;
+    text-align: left;
+}  
+form#recordForm .suggestion-item span {
+    color: #CCC;
+}  
+
+form#recordForm .attachments_button,
+form#recordForm .add_button,
+form#recordForm .remove_button {
+    max-width: 140px;
+    background-color: #eee;
+    cursor: pointer;
+    font-size: 90%;
+    border: none;
+    text-align: center;
+}
+
+form#recordForm .attachments_placeholder {
+    width: 262px;
+    display: inline-block;
+}
+
+form#recordForm #acceptance_date {
+    width: 215px !important;
+}
+
+form#recordForm .interference_checkbox,
+form#recordForm label[for='interference'] {
+    margin-top: -32px;
+}
+
+form#recordForm .interference {
+    margin-top: -64px;
+}
+
+form#recordForm label[for='interference_note'] {
+    margin-top: 0;
+}
+
+form#recordForm .interference_note_box {
+    margin-top: 0;
+}
+
+form#recordForm .attachments_button:hover,
+form#recordForm .add_button:hover,
+form#recordForm .remove_button:hover {
+    background-color: #ddd;
+}
+
+form#recordForm .add_button,
+form#recordForm .remove_button {
+    max-width: 80px;
+}
+
+form#recordForm #duplicate {
+    width: 100%;
+    margin-top: 40px;
+}
+
+form#recordForm .duplicate {
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+
+form#recordForm .highlight_green {
+    background-color: #DFD;
+}
+
+form#recordForm .highlight_red {
+    background-color: #FDD;
+}
+
+/* Button styling adapted from your requirements */
+#saveBtn, #saveBtn_order, #saveBtn_order_note, #saveBtn_event, .docsBtn {
+    background-color: #28a745; /* Green color */
+    width: 348px;
+}
+
+.docsBtn {
+    width: 100px;
+}
+
+form#printForm div {
+    width: 100%;
+    line-height: 135%;
+}
+
+form#printForm div p,
+form#printForm div button {
+    display: inline-block;
+}
+
+form#printForm div p {
+    margin-top: -3px;
+}
+
+form#printForm .cancelBtn {
+    width: 100%;
+}
+
+.cancelBtn {
+    background-color: #dc3545; /* Red color */
+}
+
+form#recordForm button,
+form#printForm button {
+    float: right;
+    padding: 12px 15px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 5px; /* Space above and below the buttons */
+}
+
+form#printForm {
+    padding: 0;
+    text-align: right;
+}
+
+form#recordForm button:hover,
+form#recordForm button:hover {
+    opacity: 0.8;
+}
+
+form#recordForm .part_name {
+    max-width: 337px;
+    margin-right: 5px;
+}
+
+.lighterText {
+    color:#BBB;
+    font-size: 14px;
+}
+
+form#recordForm #nip {
+    font-weight: bold;
+}
+
+form#recordForm label[for='firstname'],
+form#recordForm label[for='lastname'],
+form#recordForm label[for='phone'] {
+    font-weight: bold;
+    color: #333;
+}
+
+.dimmed {
+    background-color: #f0f2f5 !important;
+    border-color: #DDD !important;
+    color: #DDD !important;
+}
+
+.dimmed:hover {
+    opacity: 1 !important;
+}
+
+#backupInfo {
+    margin-top: 8px;
+}
+
+#movePhotos {
+    display: none;
+}
+
+#movePhotos img {
+    position: fixed;
+    z-index: 102;
+    top: 50%;
+    margin-top: -35px;
+    cursor: pointer;
+    right: 10px;
+    border-radius: 10px;
+}
+
+#movePhotos #prevPhoto {
+    transform: scaleX(-1);
+    opacity: 0;
+    left: 10px;
+}
+
+#movePhotos #prevPhoto,
+#movePhotos #nextPhoto,
+#movePhotos #closePhoto,
+#movePhotos #deletePhoto {
+    width: 70px;
+    height: 70px;
+    z-index: 102;
+}
+
+#movePhotos #closePhoto {
+    z-index: 103;
+}
+
+#printPopup {
+    top: 50%;
+    width: 360px;
+    padding: 15px;
+}
+
+#notification,
+.notification_bg,
+.notification_bg_white {
+    background-color: #C00;
+    opacity: .8;
+    text-align: center;
+    display: none;
+    z-index: 101;
+}
+
+.notification_bg_white {
+    background-color: #FFF;
+    opacity: .8;
+    z-index: 99;
+}
+
+#notification {
+    display: none;
+    background: none;
+}
+
+.notification_bg,
+.notification_bg_white {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 8px;
+}
+
+#notification img,
+#notification p {
+    position: fixed;
+    z-index: 101;
+    top: 50%;
+    left: 50%;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; } /* Image fully visible */
+    50% { opacity: 0; } /* Image fully transparent */
+}
+
+#notification img.blink,
+#notification img.rotating {
+    animation: blink 2s infinite; /* Adjust the time as needed */
+    width: 100px;
+    height: 100px;
+    margin-top: -80px;
+    margin-left: -50px;
+}
+  
+/* Keyframes for rotation */
+@keyframes rotateImage {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#notification img.rotating {
+    animation: rotateImage 1s linear infinite;
+}
+
+#notification p {
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    width: 300px;
+    margin-left: -150px;
+    line-height: 145%;
+}
+
+#recordForm .missed {
+    border: 1px solid red !important;
+    background-color: #FEE !important;
+    box-shadow: inset 0 0 0 1px red !important;
+}
+
+#recordsTable {
+    margin-left: -40px;
+    margin-top: 0;
+}
+
+#recordsTable tbody tr td[data-column="email"] {
+    max-width: 140px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.addNote,
+.addNoteMark {
+    height: 15px;
+    width: 15px;
+    border-radius: 3px;
+    margin-right: 5px;
+    margin-top: -10px;
+    cursor: pointer;
+}
+
+.addNoteTA {
+    height: 300px;
+}
+
+.addNoteMark {
+    cursor: default;
+}
+
+.hideMe {
+    display: none !important;
+}
+
+/* Responsiveness: Adjusts layout on smaller screens */
+@media screen and (max-width: 768px) {
+    
+}

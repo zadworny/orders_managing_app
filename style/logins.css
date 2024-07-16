@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    font-size: 14px;
+}
+
+.login-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 400px;
+}
+
+.login-container img {
+    width: 280px;
+}
+
+input[type=text], input[type=password], input[type=email], button {
+    width: calc(100% - 40px);
+    padding: 15px 20px;
+    margin: 10px 20px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+label.checkbox-inline {
+    margin: 10px auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+input[type=checkbox] {
+    margin: -3px 2px 0 -2px;
+    vertical-align: middle;
+}
+
+button {
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+a#forgotPasswordLink,
+a.backtoLoginLink {
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a#forgotPasswordLink:hover,
+a.backtoLoginLink:hover {
+    text-decoration: underline;
+}
+
+#notification {
+    display: none;
+    color: #333;
+    padding: 14px 20px;
+    margin: 10px 20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+#resetForm {
+    display: none;
+}
+
+#newpassForm #password-strength-indicator {
+    width: calc(100% - 40px);
+    height: 5px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    margin: 10px 20px 10px 20px;
+    float: left;
+}
+
+#newpassForm .strength-weak {
+    background-color: #ff8888 !important; /* Lighter shade of red */
+    border: 1px solid #cc6666 !important; /* Corresponding darker shade for border */
+    width: calc(40% - 40px) !important;
+}
+#newpassForm .strength-medium {
+    background-color: #ffdd88 !important; /* Lighter shade of amber */
+    border: 1px solid #cca533 !important; /* Corresponding darker shade for border */
+    width: calc(70% - 40px) !important;
+}
+#newpassForm .strength-strong {
+    background-color: #33cc33 !important; /* Darker shade of green */
+    border: 1px solid #009900 !important; /* Even darker shade for border */
+    width: calc(100% - 40px) !important;
+}
+#newpassForm #submit-btn {
+    cursor: pointer;
+    opacity: 0.5;
+    pointer-events: none;
+}
+#submit-btn.enabled {
+    opacity: 1 !important; 
+    pointer-events: auto !important;
+}
+
+#newpassForm .checkbox-inline {
+    width: calc(100% - 45px);
+    margin: 10px auto;
+    line-height: 150%;
+}
+
+#captchaSection {
+    display: none;
+}

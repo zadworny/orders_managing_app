@@ -1,0 +1,291 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f2f5;
+}
+
+.tooltip tr td {
+    text-align: left;
+    font-size: 12px;
+}
+.tooltip tr td:nth-child(1) {
+    padding-right: 10px;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    z-index: 102;
+    box-shadow: 0px 0px 5px #0003;
+    padding: 7px 10px;
+    font-size: 90%;
+    text-align: center;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%; /* Position the arrow at the bottom of the tooltip */
+    left: 50%;
+    margin-left: -8px; /* Center the arrow */
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid transparent; /* New arrow direction */
+    border-top: 8px solid #333; /* Arrow color matches the tooltip background */
+}
+
+#temp {
+    position: fixed;
+    top: 3px; 
+    right: 3px;
+    padding: 10px;
+    background-color: #FFF;
+    text-align: center;
+    z-index: 2;
+}
+#temp2 {
+    position: fixed;
+    top: 3px; 
+    left: 3px;
+    padding: 10px;
+    background-color: #FFF;
+    text-align: center;
+    z-index: 2;
+}
+#temp a {
+    color: #C00 !important;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#login_holder,
+#level_holder {
+    display: none;
+}
+
+#flexContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-family: Arial, sans-serif;
+}
+
+#searchBoxes {
+    display: none;
+    width: 485px;
+    margin-top: 3px;
+}
+
+#flexContainer select {
+    display: block;
+    border: none;
+    padding: 0;
+    margin-top: 15px;
+    font-size: 16px;
+    width: 70%;
+    text-align: left;
+}
+
+#flexContainer .urgent {
+    float: right;
+    width: 25%;
+    text-align: right;
+    margin-top: -19px;
+}
+
+.orderContainers {
+    flex: 1 0 22%; 
+    margin: 1px; /* Optional: Adds a little space between the divs */
+    min-width: 300px;
+}
+
+/* Responsiveness: Adjusts layout on smaller screens */
+@media screen and (max-width: 800px) {
+    .orderContainers {
+        flex-basis: 100%; /* Each .orderContainer takes full width of the parent, stacking vertically */
+        min-width: 300px;
+    }
+}
+
+.order-box,
+.order-header {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 2px;
+    box-sizing: border-box;
+}
+
+.order-header {
+    text-align: center;
+    font-weight: bold;
+}
+
+.order-box span {
+    float: right;
+}
+
+.order-box p {
+    margin-top: 18px;
+}
+
+.orderWarning {
+    height: 15px;
+    margin-left: 6px;
+    margin-bottom: 1px;
+}
+
+#flexContainer table {
+    margin: 15px 0;
+    margin-bottom: 0;
+}
+
+#flexContainer tr {
+    display: block;
+    margin-left: 0;
+}
+
+.oneOfFew {
+    width: 100%;
+    text-align: center;
+    margin-top: -18px;
+}
+
+.oneOfFewBorder {
+    border: 2px solid #0C0;
+}
+
+#flexContainer td {
+    vertical-align: top;
+    text-align: left;
+}
+
+#flexContainer td:nth-child(1) {
+    width: 85px;
+}
+
+/* #ccffff blue = pilne */
+
+.status-1 {
+    background-color: #ffdcb2;
+}
+
+.status-2,
+.status-10 {
+    background-color: #ffffff;
+}
+
+.status-3 {
+    background-color: #ffccff;
+}
+
+.status-4 { 
+    background-color: #ccccff;
+}
+
+.status-5 { 
+    background-color: #ffffcc;
+}
+
+.status-6 {
+    background-color: #ccffcc;
+}
+
+.status-7 {
+    background-color: #ffffff;
+}
+
+.status-8 {
+    background-color: #ccffff;
+}
+
+.status-9 {
+    background-color: #e0d1f1;
+}
+
+.status-10 {
+    background-color: #ddd;
+}
+
+.status-11 {
+    background-color: #FBB;
+    text-align: center;
+    padding: 5px 3px !important;
+    margin-left: -2px !important;
+}
+
+.cal-day-sunday .status-11 {
+    padding-right: 1px !important;
+}
+
+.warningSoon {
+    border: 2px solid red;
+}
+
+.warningPast {
+    background-color: #ffcccc;
+    border: 2px solid red;
+}
+
+.status-urgent {
+    background-color: #ccffff;
+}
+
+#boxId {
+    width: 422px;
+    margin: 15px 0 15px auto;
+    text-align: left;
+    border-radius: 5px;
+}
+
+#boxId td {
+    vertical-align: text-top;
+}
+
+#boxId td:nth-child(1) {
+    padding-right: 5px;
+}
+
+#formPopup .addBorder {
+    border: 2px solid #CCC;
+}
+
+#infoBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 7px;
+    background-color: #ffcc66;
+    color: #333;
+    display: none;
+    text-align: center;
+    z-index: 1;
+    border-top: 2px solid #f90;
+}
+
+#infoBar img {
+    height: 16px;
+    margin: 0 8px -2px 8px;
+}
+
+.collect,
+.payment {
+    margin-top: 0 !important;
+    width: 175px !important;
+}
+
+@keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+}
+  
+.blinking {
+    animation: blink .6s linear infinite;
+}

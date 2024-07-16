@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File Upload</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .upload-form { margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<form action="upload.php" method="post" enctype="multipart/form-data" class="upload-form">
+    Select file to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload File" name="submit">
+</form>
+
+</body>
+</html>
