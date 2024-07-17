@@ -1,5 +1,5 @@
 <?php
-//error_reporting(E_ALL);
+error_reporting(E_ALL);
 require_once '../database/connect.php';
 require_once '../functions/smsPlanet.php'; // For smsPlanet
 require_once 'imageResizer.php';
@@ -44,7 +44,7 @@ unset($columns['dbTable']); // Remove dbTable as it's used only once
 
 // GUS
 $gusSuccess = 0;
-if (isset($_POST['gusData'])) {
+if (isset($_POST['gusData']) && $_POST['gusData'] != '') {
     $gus = json_decode($_POST['gusData'], true);
     $gusSuccess = $gus['success'];
     if ($gusSuccess !== false) {
@@ -60,9 +60,10 @@ if (isset($_POST['gusData'])) {
             }
         }
         
-        unset($garr['nip']);
-        unset($garr['firstname']);
-        unset($garr['lastname']);
+        //unset($garr['nip']);
+        //unset($garr['firstname']);
+        //unset($garr['lastname']);
+        unset($garr['clientid']);
 
         $kgus = array_keys($newgus);
         $gset = implode(', ', $garr);
@@ -184,6 +185,7 @@ $gvaluesToRemove = ['success', 'receiptid', 'client_orders', 'province', 'since'
 */
 
 if ($table == 'orders') {
+    $gparams[':name'] = $_POST['name']; //$params[':name_custom'];
     $gparams[':name_custom'] = $_POST['name_custom']; //$params[':name_custom'];
     $gparams[':firstname'] = $_POST['firstname']; //$params[':firstname'];
     $gparams[':lastname'] = $_POST['lastname']; //$params[':lastname'];
@@ -200,14 +202,15 @@ if ($table == 'orders') {
         //$gparams[':client_orders'] = '0';
         //$gparams[':province'] = ''; // ignore
         //$gparams[':since'] = ''; // ignore
-    
+        
         $gparams[':nip'] = '';
         $gparams[':individual'] = 'TAK';
-
+        
         $gparams[':clientid'] = $params[':clientid'];
-        $gparams[':name'] = $params[':name'];
+        //$gparams[':name'] = $params[':name'];
         $gparams[':import_db'] = 'Ręcznie';
-    
+        
+        $gparams[':name'] =  ($_POST['name'] === '') ? null : $_POST['name']; //$params[':name'];
         $gparams[':street'] = ($_POST['street'] === '') ? null : $_POST['street']; //$params[':street'];
         $gparams[':house_no'] = ($_POST['house_no'] === '') ? null : $_POST['house_no']; //$params[':house_no'];
         $gparams[':flat_no'] = ($_POST['flat_no'] === '') ? null : $_POST['flat_no']; //$params[':flat_no'];
@@ -221,9 +224,11 @@ if ($table == 'orders') {
             $garr[$k] = $k . ' = :' . $k;
         }
 
-        unset($garr['nip']);
-        unset($garr['firstname']);
-        unset($garr['lastname']);
+        // NEW: BETA
+        //unset($garr['nip']);
+        //unset($garr['firstname']);
+        //unset($garr['lastname']);
+        unset($garr['clientid']);
 
         $kgus = array_keys($newgus);
         $gset = implode(', ', $garr);
@@ -328,7 +333,6 @@ if (!$isUpdate || $isUpdateAdd) { // add NEW || add MORE to receipts to existing
     $query = "INSERT INTO " . $table . " (" . $keys . ") VALUES (" . $vals . ")";
     $stmt_add = $db->prepare($query);
 }
-
 $output = '';
 
 if ($table == 'orders' && $sp_sent == 0) {
@@ -512,9 +516,10 @@ if ($table == 'orders' && $sp_sent == 0) {
     // Next: make $gusSuccess == 1 / $gusClient == 0 by default. If inserted and then removed NIP or Name from form then get back to default
     if ($gusSuccess == 1) {
         $gtable = 'clients';
-        if ($gusClient == 1) {
+        if ($gusClient == 1 || ($isUpdate && $gusClient == 0)) {
             // Update
-            $gquery = "UPDATE " . $gtable . " SET " . $gset . " WHERE nip = :nip AND firstname = :firstname AND lastname = :lastname";
+            //$gquery = "UPDATE " . $gtable . " SET " . $gset . " WHERE nip = :nip AND firstname = :firstname AND lastname = :lastname";
+            $gquery = "UPDATE " . $gtable . " SET " . $gset . " WHERE clientid = :clientid";
             $gstmt = $db->prepare($gquery);
             $gsuccess = $gstmt->execute($gparams);
         /*if ($gusClient == 1 && $individualClient == 1) {
@@ -555,4 +560,5 @@ if ($table == 'orders' && $sp_sent == 0) {
 
 // Setting header to JSON for AJAX response
 header('Content-Type: application/json');
-echo json_encode(['success' => $success, 'sent' => $sp_sent, 'confirm' => $confirm, 'id' => $outputId]);
+// query and gquery are for test only
+echo json_encode(['success' => $success, 'sent' => $sp_sent, 'confirm' => $confirm, 'id' => $outputId, 'query' => $query, 'gquery' => $gquery, 'gparams' => $gparams, 'gusSuccess' => $gusSuccess, 'gusClient' => $gusClient, 'isUpdate' => $isUpdate, 'gusData' => $_POST['gusData'], 'gset' => $gset]);
